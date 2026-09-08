@@ -1,0 +1,6 @@
+{
+  "name": "Nuwi Play",
+  "description": "Plataforma gamificada y segura para terapia psicológica infantil. Incluye portal para terapeutas y actividades interactivas para niños.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

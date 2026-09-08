@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #EAF2FF;
+  color: #312E81;
+}
+
+.mesh-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 20% 30%, #FFD1D1 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, #D1F5FF 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, #E2D1FF 0%, transparent 40%),
+    radial-gradient(circle at 10% 90%, #FFF4D1 0%, transparent 30%);
+  filter: blur(80px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.breathing-bubble {
+  background: radial-gradient(circle, #89CFF0 0%, #B2E2F2 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(137, 207, 240, 0.6);
+  border: 6px solid rgba(255, 255, 255, 0.35);
+}
+
+.nav-item {
+  transition: all 0.2s ease;
+}
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-30px) translateX(20px) scale(1.06);
+  }
+  66% {
+    transform: translateY(20px) translateX(-25px) scale(0.96);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  33% {
+    transform: translateY(25px) translateX(-30px) scale(1.05);
+  }
+  66% {
+    transform: translateY(-20px) translateX(20px) scale(0.97);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 16s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 20s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 9s ease-in-out infinite;
+}
+
+.animate-gradient-flow {
+  background-size: 240% 240%;
+  animation: gradient-flow 18s ease infinite;
+}

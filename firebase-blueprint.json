@@ -1,0 +1,98 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile containing role assignment",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "enum": ["therapist", "patient", "parent"] },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "createdAt": { "description": "Timestamp", "type": "number" },
+        "updatedAt": { "description": "Timestamp", "type": "number" }
+      },
+      "required": ["role", "name", "email", "createdAt", "updatedAt"]
+    },
+    "PatientProfile": {
+      "title": "Patient Profile",
+      "description": "Detailed profile for child patient",
+      "type": "object",
+      "properties": {
+        "therapistId": { "type": "string" },
+        "parentId": { "type": "string" },
+        "name": { "type": "string" },
+        "age": { "type": "integer" },
+        "primaryDiagnosis": { "type": "string" },
+        "interests": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["therapistId", "name", "age", "createdAt", "updatedAt"]
+    },
+    "Activity": {
+      "title": "Activity",
+      "description": "Catalog of possible therapeutic activities",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["breathing", "emotion_monster", "mindfulness"] },
+        "difficulty": { "type": "integer" }
+      },
+      "required": ["title", "type", "description", "difficulty"]
+    },
+    "Assignment": {
+      "title": "Assignment",
+      "description": "Activity assigned to a patient",
+      "type": "object",
+      "properties": {
+        "patientId": { "type": "string" },
+        "therapistId": { "type": "string" },
+        "activityId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "completed"] },
+        "dueDate": { "type": "number" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["patientId", "therapistId", "activityId", "status", "createdAt", "updatedAt"]
+    },
+    "ProgressLog": {
+      "title": "Progress Log",
+      "description": "Log of a completed activity",
+      "type": "object",
+      "properties": {
+        "patientId": { "type": "string" },
+        "assignmentId": { "type": "string" },
+        "activityId": { "type": "string" },
+        "durationSeconds": { "type": "integer" },
+        "moodBefore": { "type": "string" },
+        "moodAfter": { "type": "string" },
+        "score": { "type": "integer" },
+        "completedAt": { "type": "number" }
+      },
+      "required": ["patientId", "assignmentId", "activityId", "durationSeconds", "completedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User accounts with RBAC roles"
+    },
+    "/patients/{patientId}": {
+      "schema": { "$ref": "#/entities/PatientProfile" },
+      "description": "Patient profiles managed by therapists"
+    },
+    "/activities/{activityId}": {
+      "schema": { "$ref": "#/entities/Activity" },
+      "description": "Global catalog of playable activities"
+    },
+    "/assignments/{assignmentId}": {
+      "schema": { "$ref": "#/entities/Assignment" },
+      "description": "Tasks assigned to patients"
+    },
+    "/progressLogs/{logId}": {
+      "schema": { "$ref": "#/entities/ProgressLog" },
+      "description": "Play sessions and outcomes"
+    }
+  }
+}
