@@ -19,7 +19,7 @@ export interface CompanionInfo {
 
 export const COMPANIONS: Record<CompanionKey, CompanionInfo> = {
   juku: {
-    name: 'Juku',
+    name: 'Juku (Oso Jukumari)',
     role: 'El Operador (Oso Jukumari)',
     avatar: '🐻‍❄️',
     image: 'https://lh3.googleusercontent.com/pw/AP1GczO4x2PHxZ4IjmnoF1mbyr5ygGA_rYCpRql8WoaZtpg7xo6Qz9PH2ezquDIY_kgGd9nSWIySd2goXkzR1as7v0mDsa7gZziouomy_ZBaVQifzvE5-oLFgQ0AtIXxfJhn4pkH6MEtQ5Qo8GPSHnOjmF2y=w512-h512-s-no-gm-rw',
@@ -39,7 +39,7 @@ export const COMPANIONS: Record<CompanionKey, CompanionInfo> = {
     borderColor: 'border-sky-400'
   },
   pari: {
-    name: 'Pari',
+    name: 'Pari (Paraba)',
     role: 'Modo Turbo (Paraba)',
     avatar: '🦜',
     image: 'https://lh3.googleusercontent.com/pw/AP1GczN2_wWYyu-TB-4YDPSdaindNYvUXC8HHlgMZper7i45zaopv1ryzw6AaDFE1j_b7LjHv1RNJ4rF3KRClQCx3_6qWgk2pxuXEKjVsK8QOlpd1Uo8psKLmN8v_QbERp2l56fUHY02fl0HahAhyOFUrjjN=w512-h512-s-no-gm-rw',

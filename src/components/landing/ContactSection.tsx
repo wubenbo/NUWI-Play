@@ -200,7 +200,7 @@ export const ContactSection: React.FC = () => {
                       <input
                         type="text"
                         required
-                        placeholder="Ej. Camila Vargas"
+                        placeholder="Ej. Flavia Salinas"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full bg-slate-50/80 border border-indigo-100 rounded-xl p-3 text-sm text-indigo-950 font-medium outline-none focus:ring-2 focus:ring-indigo-300 focus:bg-white transition-all"

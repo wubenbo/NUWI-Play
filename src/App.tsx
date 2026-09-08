@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Navigate } from 'react-router-dom';
-import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, getAdditionalUserInfo } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from './lib/firebase';
 import TherapistDashboard from './pages/Dashboard';
@@ -229,11 +229,6 @@ function LoginCard({
               <div className="flex-grow border-t border-indigo-100"></div>
             </div>
 
-            <div className="mb-2 text-left bg-indigo-50 p-3 rounded-lg border border-indigo-100">
-              <span className="block text-xs font-bold text-indigo-400 uppercase mb-1">Dominio Actual (Para Firebase)</span>
-              <code className="text-sm font-mono text-indigo-900 select-all block break-all">{window.location.hostname}</code>
-            </div>
-
             {therapistLoginError && (
               <div className="mb-2 text-left bg-red-50 p-3 rounded-lg border border-red-100">
                 <p className="text-red-600 text-sm font-bold break-words">{therapistLoginError}</p>
@@ -301,7 +296,13 @@ export default function App() {
     const provider = new GoogleAuthProvider();
     setTherapistLoginError('');
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const additionalInfo = getAdditionalUserInfo(result);
+      
+      if (additionalInfo?.isNewUser) {
+        await signOut(auth);
+        setTherapistLoginError("Registro deshabilitado para esta demo. Solo cuentas existentes pueden acceder.");
+      }
     } catch (e: any) {
       console.error("Login failed", e);
       setTherapistLoginError(e.message || "Error al iniciar sesión");

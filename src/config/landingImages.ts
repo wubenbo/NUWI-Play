@@ -7,6 +7,12 @@
  * - Hosted image URLs (AWS S3, Firebase Storage, Cloudinary, etc.)
  */
 
+import psychImg from '../assets/images/psicologia_infantil_1788835461561.jpg';
+import psychopedagogyImg from '../assets/images/psicopedagogia_neurodesarrollo_1788835476586.jpg';
+import speechImg from '../assets/images/fonoaudiologia_1788835490446.jpg';
+import occupationalImg from '../assets/images/terapia_ocupacional_1788835505497.jpg';
+import clinicalTeamsImg from '../assets/images/equipos_clinicos_1788835520089.jpg';
+
 export const LANDING_IMAGES = {
   // Official Brand Logo (WebP format with -rw)
   logo: "https://lh3.googleusercontent.com/pw/AP1GczPbB2_LebNbcZGWJbPLkXE_HJ9zKOzga-6_fMMWeK7AjTrs99E_pCumHzosxfX5XDPjPHeXcZn7x-XcQH6e_86yz1ZHiZ99BCMRjugcOsKPt90oAWJK_I5PAAjVjfE8192BHqD0ZaZUZPk4_BFVezb8=w370-h370-s-no-gm-rw",
@@ -23,11 +29,11 @@ export const LANDING_IMAGES = {
 
   // Clinical Specialties Photos (Optimized WebP Delivery)
   specialties: {
-    psychology: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&fm=webp&w=500&q=75",
-    psychopedagogy: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&fm=webp&w=500&q=75",
-    speechTherapy: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&fm=webp&w=500&q=75",
-    occupationalTherapy: "https://images.unsplash.com/photo-1596464716127-f2a829822391?auto=format&fit=crop&fm=webp&w=500&q=75",
-    healthTeams: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&fm=webp&w=500&q=75"
+    psychology: psychImg,
+    psychopedagogy: psychopedagogyImg,
+    speechTherapy: speechImg,
+    occupationalTherapy: occupationalImg,
+    healthTeams: clinicalTeamsImg
   },
 
   // Key Activities Visuals (Optimized WebP Delivery)
@@ -43,7 +49,7 @@ export const LANDING_IMAGES = {
   // Escuadrón Rescate de Colores (Companions Meta)
   companions: {
     juku: {
-      name: "Juku",
+      name: "Juku (Oso Jukumari)",
       avatar: "🐻‍❄️",
       image: "https://lh3.googleusercontent.com/pw/AP1GczO4x2PHxZ4IjmnoF1mbyr5ygGA_rYCpRql8WoaZtpg7xo6Qz9PH2ezquDIY_kgGd9nSWIySd2goXkzR1as7v0mDsa7gZziouomy_ZBaVQifzvE5-oLFgQ0AtIXxfJhn4pkH6MEtQ5Qo8GPSHnOjmF2y=w512-h512-s-no-gm-rw",
       role: "Calma y Presencia (Oso Jukumari)",
@@ -57,7 +63,7 @@ export const LANDING_IMAGES = {
       focus: "Regulación Somática y Ritmo Respiratorio"
     },
     pari: {
-      name: "Pari",
+      name: "Pari (Paraba)",
       avatar: "🦜",
       image: "https://lh3.googleusercontent.com/pw/AP1GczN2_wWYyu-TB-4YDPSdaindNYvUXC8HHlgMZper7i45zaopv1ryzw6AaDFE1j_b7LjHv1RNJ4rF3KRClQCx3_6qWgk2pxuXEKjVsK8QOlpd1Uo8psKLmN8v_QbERp2l56fUHY02fl0HahAhyOFUrjjN=w512-h512-s-no-gm-rw",
       role: "Pensamiento Flexible (Paraba)",
